@@ -12,14 +12,7 @@
  */
  if(!defined('ABSPATH'))
   exit();
- /** on activation */
- function activate_language(){
-     update_option('wplang','en_GB');
- }
- register_activation_hook(__FILE__,'activate_language');
- /** on deactivation */
- function deactivate_language(){
-     update_option('wplang','it_IT');
- }hemai
- register_deactivation_hook(__FILE__,'deactivate_language');
- register_uninstall_hook(__FILE__,'deactivate_language');
+ function example_enqueue_style() {
+    wp_enqueue_style( 'yourcssfile', 'yourcssfile.css', false );
+}
+add_action( 'wp_enqueue_scripts', 'example_enqueue_style' );
