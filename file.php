@@ -10,3 +10,16 @@
  * Tested up to: 5.2.0
  *
  */
+ if(!defined('ABSPATH'))
+  exit();
+ /** on activation */
+ function activate_language(){
+     update_option('wplang','en_GB');
+ }
+ register_activation_hook(__FILE__,'activate_language');
+ /** on deactivation */
+ function deactivate_language(){
+     update_option('wplang','it_IT');
+ }hemai
+ register_deactivation_hook(__FILE__,'deactivate_language');
+ register_uninstall_hook(__FILE__,'deactivate_language');
